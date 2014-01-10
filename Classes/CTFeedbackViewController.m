@@ -45,6 +45,7 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 + (NSArray *)defaultTopics
 {
     return @[
+            @"Feedback", 
             @"Question",
             @"Request",
             @"Bug Report",
@@ -55,6 +56,7 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 + (NSArray *)defaultLocalizedTopics
 {
     return @[
+            CTFBLocalizedString(@"Feedback"),
             CTFBLocalizedString(@"Question"),
             CTFBLocalizedString(@"Request"),
             CTFBLocalizedString(@"Bug Report"),

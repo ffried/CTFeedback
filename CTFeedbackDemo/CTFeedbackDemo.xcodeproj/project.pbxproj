@@ -48,6 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6506CF97187FCC6400A2DBA7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPhone.strings; sourceTree = "<group>"; };
+		6506CF98187FCC6400A2DBA7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main_iPad.strings; sourceTree = "<group>"; };
+		6506CF99187FCC6400A2DBA7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CTFeedbackLocalizable.strings; sourceTree = "<group>"; };
+		6506CF9A187FCC6400A2DBA7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6506CF9B187FCC6400A2DBA7 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6A3F554B1821FC2000217253 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CTFeedbackLocalizable.strings; sourceTree = "<group>"; };
 		6A3F554C18222FB400217253 /* CTFeedbackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFeedbackCell.h; sourceTree = "<group>"; };
 		6A3F554D18222FB400217253 /* CTFeedbackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFeedbackCell.m; sourceTree = "<group>"; };
@@ -292,6 +297,7 @@
 				ja,
 				ru,
 				"zh-Hans",
+				de,
 			);
 			mainGroup = 6AEC61191821D17600B6DB37;
 			productRefGroup = 6AEC61231821D17600B6DB37 /* Products */;
@@ -372,6 +378,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6AEC612F1821D17600B6DB37 /* en */,
+				6506CF9A187FCC6400A2DBA7 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -380,6 +387,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6AEC61381821D17600B6DB37 /* Base */,
+				6506CF97187FCC6400A2DBA7 /* de */,
 			);
 			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -388,6 +396,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6AEC613B1821D17600B6DB37 /* Base */,
+				6506CF98187FCC6400A2DBA7 /* de */,
 			);
 			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
@@ -396,6 +405,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6AEC61511821D17600B6DB37 /* en */,
+				6506CF9B187FCC6400A2DBA7 /* de */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -408,6 +418,7 @@
 				6A3F555618233AFA00217253 /* ja */,
 				6A3F55591825B2FA00217253 /* ru */,
 				D16DCD50183C8D300025189E /* zh-Hans */,
+				6506CF99187FCC6400A2DBA7 /* de */,
 			);
 			name = CTFeedbackLocalizable.strings;
 			sourceTree = "<group>";
