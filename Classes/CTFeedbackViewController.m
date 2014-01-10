@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 @property (nonatomic, strong) CTFeedbackContentCellItem *contentCellItem;
 @property (nonatomic, readonly) NSString *mailSubject;
 @property (nonatomic, readonly) NSString *mailBody;
+@property (nonatomic, readonly) NSString *deviceLanguage;
+@property (nonatomic, readonly) NSString *deviceRegion;
 @end
 
 @implementation CTFeedbackViewController
@@ -195,6 +197,16 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
     systemVersionItem.value = self.systemVersion;
     [result addObject:systemVersionItem];
 
+    CTFeedbackInfoCellItem *languageItem = [CTFeedbackInfoCellItem new];
+    languageItem.title = CTFBLocalizedString(@"Language");
+    languageItem.value = self.deviceLanguage;
+    [result addObject:languageItem];
+    
+    CTFeedbackInfoCellItem *regionItem = [CTFeedbackInfoCellItem new];
+    regionItem.title = CTFBLocalizedString(@"Region");
+    regionItem.value = self.deviceRegion;
+    [result addObject:regionItem];
+    
     return result.copy;
 }
 
@@ -311,6 +323,17 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
     return [NSString stringWithFormat:@"%@: %@", self.appName, self.topics[self.selectedTopicIndex]];
 }
 
+- (NSString *)deviceLanguage {
+    NSString *prefLanguageCode = [[NSLocale preferredLanguages] objectAtIndex:0];
+    return [[[NSLocale alloc] initWithLocaleIdentifier:prefLanguageCode] displayNameForKey:NSLocaleIdentifier value:prefLanguageCode];
+}
+
+- (NSString *)deviceRegion {
+    NSLocale *locale = [NSLocale currentLocale];
+    return [locale displayNameForKey:NSLocaleIdentifier value:[locale localeIdentifier]];
+}
+
+
 - (NSString *)mailBody
 {
     NSString *content = self.contentCellItem.textView.text;
@@ -322,6 +345,10 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
                 <table cellspacing=0 cellpadding=0>\
                 <tr><td>Device:</td><td><b>%@</b></td></tr>\
                 <tr><td>iOS:</td><td><b>%@</b></td></tr>\
+                <tr><td>Language:</td><td><b>%@</b></td></tr>\
+                <tr><td>Region:</td><td><b>%@</b></td></tr>\
+                </table><br>\
+                <table cellspacing=0 cellpadding=0>\
                 <tr><td>App:</td><td><b>%@</b></td></tr>\
                 <tr><td>Version:</td><td><b>%@</b></td></tr>\
                 <tr><td>Build:</td><td><b>%@</b></td></tr>\
@@ -329,14 +356,18 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
                 [content stringByReplacingOccurrencesOfString:@"\n" withString:@"<br />"],
                 self.platformString,
                 self.systemVersion,
+                self.deviceLanguage,
+                self.deviceRegion,
                 self.appName,
                 self.appVersion,
                 self.appBuild];
     } else {
-        body = [NSString stringWithFormat:@"%@\n\n\nDevice: %@\niOS: %@\nApp: %@\nVersion: %@\nBuild: %@",
+        body = [NSString stringWithFormat:@"%@\n\n\nDevice: %@\niOS: %@\nLanguage: %@\nRegion; %@\n\nApp: %@\nVersion: %@\nBuild: %@",
                 content,
                 self.platformString,
                 self.systemVersion,
+                self.deviceLanguage,
+                self.deviceRegion,
                 self.appName,
                 self.appVersion,
                 self.appBuild];

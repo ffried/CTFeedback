@@ -38,6 +38,7 @@
 {
     CTFeedbackViewController *feedbackViewController = [CTFeedbackViewController controllerWithTopics:CTFeedbackViewController.defaultTopics localizedTopics:CTFeedbackViewController.defaultLocalizedTopics];
     feedbackViewController.toRecipients = @[@"ctfeedback@example.com"];
+    feedbackViewController.useHTML = YES;
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:feedbackViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }
