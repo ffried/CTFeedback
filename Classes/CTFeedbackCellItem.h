@@ -32,6 +32,7 @@
 @property (nonatomic, copy) NSString *content;
 
 @property (nonatomic, strong) UITextView *textView;
+
 @end
 
 

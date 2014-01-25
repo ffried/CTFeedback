@@ -9,24 +9,8 @@
 #import "CTFeedbackCell.h"
 #import "CTFeedbackCellItem.h"
 
-NSString *const CTFeedbackCellIdentifierTopic=@"CTFeedbackCellIdentifierTopic";
+NSString *const CTFeedbackCellIdentifierTopic = @"CTFeedbackCellIdentifierTopic";
 
 @implementation CTFeedbackCell
-
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:[NSClassFromString(reuseIdentifier) cellStyle] reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end
