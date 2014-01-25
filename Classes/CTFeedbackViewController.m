@@ -101,12 +101,6 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)dealloc
 {
     [self.contentCellItem removeObserver:self forKeyPath:@"cellHeight"];
@@ -114,12 +108,13 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 
 #pragma mark - Key value observing
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change
-                       context:(void *)context
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([keyPath isEqualToString:@"cellHeight"]) {
+    if (object == self.contentCellItem && [keyPath isEqualToString:@"cellHeight"]) {
         [self.tableView beginUpdates];
         [self.tableView endUpdates];
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     }
 }
 
@@ -323,12 +318,14 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
     return [NSString stringWithFormat:@"%@: %@", self.appName, self.topics[self.selectedTopicIndex]];
 }
 
-- (NSString *)deviceLanguage {
+- (NSString *)deviceLanguage
+{
     NSString *prefLanguageCode = [[NSLocale preferredLanguages] objectAtIndex:0];
     return [[[NSLocale alloc] initWithLocaleIdentifier:prefLanguageCode] displayNameForKey:NSLocaleIdentifier value:prefLanguageCode];
 }
 
-- (NSString *)deviceRegion {
+- (NSString *)deviceRegion
+{
     NSLocale *locale = [NSLocale currentLocale];
     return [locale displayNameForKey:NSLocaleIdentifier value:[locale localeIdentifier]];
 }
