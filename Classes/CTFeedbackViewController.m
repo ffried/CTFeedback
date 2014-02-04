@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 
 @implementation CTFeedbackViewController
 
-+ (CTFeedbackViewController *)controllerWithTopics:(NSArray *)topics localizedTopics:(NSArray *)localizedTopics
++ (instancetype)controllerWithTopics:(NSArray *)topics localizedTopics:(NSArray *)localizedTopics
 {
     return [[CTFeedbackViewController alloc] initWithTopics:topics localizedTopics:localizedTopics];
 }
@@ -122,15 +122,15 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 
 - (void)cancelButtonTapped:(id)sender
 {
-    if(self.navigationController != nil){
-        if( [self.navigationController viewControllers][0] == self){
+    if (self.navigationController != nil) {
+        if ([self.navigationController viewControllers][0] == self) {
             // Can't pop, just dismiss
             [self dismissViewControllerAnimated:YES completion:nil];
-        }else{
+        } else {
             // Can be popped
             [self.navigationController popViewControllerAnimated:YES];
         }
-    }else{
+    } else {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }

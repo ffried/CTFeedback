@@ -5,7 +5,7 @@
 
 #import "CTFeedbackCellItem.h"
 
-#define ContentCellHeight 100
+#define ContentCellHeight 100.0f
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
@@ -23,7 +23,7 @@
 
 - (CGFloat)cellHeight
 {
-    return 44.0;
+    return 44.0f;
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
@@ -46,7 +46,7 @@
     return UITableViewCellStyleValue1;
 }
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
@@ -70,15 +70,15 @@
 
 @implementation CTFeedbackContentCellItem
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.textView = [[UITextView alloc] initWithFrame:CGRectMake(5, 0, 310, ContentCellHeight)];
+        self.textView = [[UITextView alloc] initWithFrame:CGRectMake(5.0f, 0.0f, 310.0f, ContentCellHeight)];
         self.textView.text = self.content;
         self.textView.delegate = self;
         self.textView.scrollEnabled = NO;
-        self.textView.font = [UIFont systemFontOfSize:14];
+        self.textView.font = [UIFont systemFontOfSize:14.0f];
         self.textView.backgroundColor = [UIColor clearColor];
     }
     return self;

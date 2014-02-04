@@ -8,22 +8,13 @@
 
 #import "CTFeedbackTopicsViewController.h"
 
-static NSString *CTFeedbackTopicsViewControllerCellIdentifier = @"Cell";
+static NSString *const CTFeedbackTopicsViewControllerCellIdentifier = @"Cell";
 
 @interface CTFeedbackTopicsViewController ()
 
 @end
 
 @implementation CTFeedbackTopicsViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -32,12 +23,6 @@ static NSString *CTFeedbackTopicsViewControllerCellIdentifier = @"Cell";
     self.title = NSLocalizedStringFromTable(@"Topics", @"CTFeedbackLocalizable", @"Topics");
 
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CTFeedbackTopicsViewControllerCellIdentifier];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
