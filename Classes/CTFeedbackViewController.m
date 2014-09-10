@@ -10,6 +10,7 @@
 #import "CTFeedbackCell.h"
 #import "CTFeedbackCellItem.h"
 #import "CTFeedbackTopicsViewController.h"
+#import "CTFeedbackAttachment.h"
 #include <sys/sysctl.h>
 #import "NSBundle+CTFeedback.h"
 #import <MessageUI/MessageUI.h>
@@ -386,6 +387,11 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
     [controller setBccRecipients:self.bccRecipients];
     [controller setSubject:self.mailSubject];
     [controller setMessageBody:self.mailBody isHTML:self.useHTML];
+    
+    [self.attachments enumerateObjectsUsingBlock:^(CTFeedbackAttachment *attachment, NSUInteger idx, BOOL *stop) {
+        [attachment addToMailComposeViewController:controller];
+    }];
+    
     [self presentViewController:controller animated:YES completion:nil];
 }
 

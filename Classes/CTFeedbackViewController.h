@@ -35,8 +35,9 @@
 
 @property (nonatomic, strong) NSArray *bccRecipients;
 
-@property (nonatomic, strong) NSString *additionalDiagnosticContent;
 @property (assign) BOOL useHTML;
+@property (nonatomic, strong) NSString *additionalDiagnosticContent;
+@property (nonatomic, strong) NSArray */* CTFeedbackAttachment */attachments;
 
 + (instancetype)controllerWithTopics:(NSArray *)topics localizedTopics:(NSArray *)localizedTopics;
 
