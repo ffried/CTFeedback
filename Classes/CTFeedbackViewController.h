@@ -11,6 +11,7 @@
 
 @class CTFeedbackTopicCellItem;
 @class CTFeedbackContentCellItem;
+@class CTFeedbackAttachment;
 
 @interface CTFeedbackViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
