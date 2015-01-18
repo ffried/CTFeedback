@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
 
+@class CTFeedbackViewController;
+typedef void(^CTFeedbackPreparationHandler)(CTFeedbackViewController *feedbackVC, NSUInteger selectedTopicIndex);
+
 @class CTFeedbackTopicCellItem;
 @class CTFeedbackContentCellItem;
 @class CTFeedbackAttachment;
@@ -39,6 +42,8 @@
 @property (assign) BOOL useHTML;
 @property (nonatomic, strong) NSString *additionalDiagnosticContent;
 @property (nonatomic, strong) NSArray */* CTFeedbackAttachment */attachments;
+
+@property (nonatomic, copy) CTFeedbackPreparationHandler preparationHandler;
 
 + (instancetype)controllerWithTopics:(NSArray *)topics localizedTopics:(NSArray *)localizedTopics;
 

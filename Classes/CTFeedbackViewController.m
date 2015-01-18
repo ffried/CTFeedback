@@ -380,6 +380,10 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 
 - (void)sendButtonTapped:(id)sender
 {
+    if (self.preparationHandler != nil) {
+        self.preparationHandler(self, self.selectedTopicIndex);
+    }
+    
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     controller.mailComposeDelegate = self;
     [controller setToRecipients:self.toRecipients];
