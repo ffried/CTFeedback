@@ -262,6 +262,8 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
     if ([platform isEqualToString:@"iPhone5,4"]) return @"iPhone 5c (Global)";
     if ([platform isEqualToString:@"iPhone6,1"]) return @"iPhone 5s (GSM)";
     if ([platform isEqualToString:@"iPhone6,2"]) return @"iPhone 5s (Global)";
+    if ([platform isEqualToString:@"iPhone7,1"]) return @"iPhone 6 Plus";
+    if ([platform isEqualToString:@"iPhone7,2"]) return @"iPhone 6";
 
     if ([platform isEqualToString:@"iPod1,1"]) return @"iPod Touch 1G";
     if ([platform isEqualToString:@"iPod2,1"]) return @"iPod Touch 2G";
@@ -287,6 +289,13 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
     if ([platform isEqualToString:@"iPad2,7"]) return @"iPad mini-1G (GSM+CDMA)";
     if ([platform isEqualToString:@"iPad4,4"]) return @"iPad mini-2G (WiFi)";
     if ([platform isEqualToString:@"iPad4,5"]) return @"iPad mini-2G (Cellular)";
+    
+    if ([platform isEqualToString:@"iPad4,7"]) return @"iPad mini 3 (WiFi)";
+    if ([platform isEqualToString:@"iPad4,8"]) return @"iPad mini 3 (Cellular)";
+    if ([platform isEqualToString:@"iPad4,9"]) return @"iPad mini 3 (China Model)";
+    
+    if ([platform isEqualToString:@"iPad5,3"]) return @"iPad Air 2 (WiFi)";
+    if ([platform isEqualToString:@"iPad5,4"]) return @"iPad Air 2 (Cellular)";
 
     if ([platform isEqualToString:@"i386"]) return @"Simulator";
     if ([platform isEqualToString:@"x86_64"]) return @"Simulator";
@@ -301,7 +310,7 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 
 - (NSString *)appName
 {
-    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"] ?: [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
 }
 
 - (NSString *)appVersion
