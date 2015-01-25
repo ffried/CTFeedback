@@ -43,6 +43,9 @@ typedef void(^CTFeedbackPreparationHandler)(CTFeedbackViewController *feedbackVC
 @property (nonatomic, strong) NSString *additionalDiagnosticContent;
 @property (nonatomic, strong) NSArray */* CTFeedbackAttachment */attachments;
 
+@property (nonatomic) UIStatusBarStyle preferredStatusBarStyle;
+@property (nonatomic) UIStatusBarAnimation preferredStatusBarUpdateAnimation;
+
 @property (nonatomic, copy) CTFeedbackPreparationHandler preparationHandler;
 
 + (instancetype)controllerWithTopics:(NSArray *)topics localizedTopics:(NSArray *)localizedTopics;

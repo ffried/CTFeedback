@@ -96,7 +96,9 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
+    
+    [self setNeedsStatusBarAppearanceUpdate];
+    
     if (self.presentingViewController.presentedViewController) {
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped:)];
     }
@@ -160,6 +162,8 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
         CTFeedbackTopicsViewController *topicsViewController = [[CTFeedbackTopicsViewController alloc] initWithStyle:UITableViewStyleGrouped];
         topicsViewController.topics = sender.topics;
         topicsViewController.localizedTopics = sender.localizedTopics;
+        topicsViewController.preferredStatusBarStyle = weakSelf.preferredStatusBarStyle;
+        topicsViewController.preferredStatusBarUpdateAnimation = weakSelf.preferredStatusBarUpdateAnimation;
         topicsViewController.action = ^(NSString *selectedTopic) {
             weakSelf.selectedTopic = selectedTopic;
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:CTFeedbackSectionInput];
@@ -167,7 +171,6 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
             cellItem.topic = weakSelf.localizedTopics[weakSelf.selectedTopicIndex];
             [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         };
-
         [sender.navigationController pushViewController:topicsViewController animated:YES];
     };
     [result addObject:self.topicCellItem];

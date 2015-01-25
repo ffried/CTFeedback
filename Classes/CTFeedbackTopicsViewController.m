@@ -25,6 +25,13 @@ static NSString *const CTFeedbackTopicsViewControllerCellIdentifier = @"Cell";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CTFeedbackTopicsViewControllerCellIdentifier];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self setNeedsStatusBarAppearanceUpdate];
+}
+
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSString *topic = self.localizedTopics[(NSUInteger)indexPath.row];

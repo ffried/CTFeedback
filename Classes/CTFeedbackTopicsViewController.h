@@ -13,4 +13,8 @@
 @property (nonatomic, strong) NSArray *topics;
 @property (nonatomic, strong) NSArray *localizedTopics;
 @property (nonatomic, copy) void (^action)(NSString *);
+
+@property (nonatomic) UIStatusBarStyle preferredStatusBarStyle;
+@property (nonatomic) UIStatusBarAnimation preferredStatusBarUpdateAnimation;
+
 @end
